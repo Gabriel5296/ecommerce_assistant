@@ -1,0 +1,44 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+env/
+venv/
+vevm/
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Environment files
+.env
+*.env
+
+# Logs
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+notebook/
+
+# Claude settings
+.claude/
+
+# Scraped data & debug files
+data/
+
+# Windows null device artifact
+nul
+
+# Misc
+archive/
+*.tmp
+*.bak
+Thumbs.db
+.DS_Store

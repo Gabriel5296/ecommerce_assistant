@@ -27,8 +27,6 @@ vevm/
 .ipynb_checkpoints/
 notebook/
 
-# Claude settings
-.claude/
 
 # Scraped data & debug files
 data/

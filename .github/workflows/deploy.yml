@@ -88,6 +88,12 @@ jobs:
           ls -la ~/.kube || true
           cat ~/.kube/config || true
       
+      # Check node status
+      - name: Check node status
+        run: |
+          kubectl get nodes -o wide
+          kubectl describe nodes
+
       # Create/Update Kubernetes Secret (for API keys)
       - name: Create Kubernetes secret for API keys
         env:

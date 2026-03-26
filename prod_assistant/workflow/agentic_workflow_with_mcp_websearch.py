@@ -7,7 +7,6 @@ from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import MemorySaver
 
 from prod_assistant.prompt_library.prompts import PROMPT_REGISTRY, PromptType
-from prod_assistant.retriever.retrieval import Retriever
 from prod_assistant.utils.model_loader import ModelLoader
 from prod_assistant.evaluation.ragas_eval import evaluate_context_precision, evaluate_response_relevancy
 from langchain_mcp_adapters.client import MultiServerMCPClient
@@ -21,7 +20,6 @@ class AgenticRAG:
 
     # ---------- Initialization ----------
     def __init__(self, mcp_url: str = "http://localhost:8001/mcp"):
-        self.retriever_obj = Retriever()
         self.model_loader = ModelLoader()
         self.llm = self.model_loader.load_llm()
         self.checkpointer = MemorySaver()

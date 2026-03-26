@@ -19,6 +19,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      # Delete stack if in ROLLBACK_COMPLETE state
+      - name: Cleanup failed stack if needed
+        run: |
+          STATUS=$(aws cloudformation describe-stacks --stack-name product-assistant-cluster --region ${{ secrets.AWS_REGION }} --query "Stacks[0].StackStatus" --output text 2>/dev/null || echo "DOES_NOT_EXIST")
+          if [ "$STATUS" = "ROLLBACK_COMPLETE" ]; then
+            echo "Stack in ROLLBACK_COMPLETE — deleting before redeploy..."
+            aws cloudformation delete-stack --stack-name product-assistant-cluster --region ${{ secrets.AWS_REGION }}
+            aws cloudformation wait stack-delete-complete --stack-name product-assistant-cluster --region ${{ secrets.AWS_REGION }}
+            echo "Stack deleted."
+          fi
+
       # Deploy CloudFormation Stack
       - name: Deploy CloudFormation Stack
         run: |

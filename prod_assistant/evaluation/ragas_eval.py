@@ -1,12 +1,5 @@
 import asyncio
-from prod_assistant.utils.model_loader import ModelLoader
-from ragas import SingleTurnSample
-from ragas.llms import LangchainLLMWrapper
-from ragas.embeddings import LangchainEmbeddingsWrapper
-from ragas.metrics import LLMContextPrecisionWithoutReference, ResponseRelevancy
-import grpc.experimental.aio as grpc_aio
 from dotenv import load_dotenv
-grpc_aio.init_grpc_aio()
 
 _model_loader = None
 
@@ -14,12 +7,19 @@ def _get_model_loader():
     global _model_loader
     if _model_loader is None:
         load_dotenv()
+        from prod_assistant.utils.model_loader import ModelLoader
         _model_loader = ModelLoader()
     return _model_loader
 
 
 def evaluate_context_precision(query, response, retrieved_context):
     try:
+        from ragas import SingleTurnSample
+        from ragas.llms import LangchainLLMWrapper
+        from ragas.metrics import LLMContextPrecisionWithoutReference
+        import grpc.experimental.aio as grpc_aio
+        grpc_aio.init_grpc_aio()
+
         sample = SingleTurnSample(
             user_input=query,
             response=response,
@@ -39,6 +39,13 @@ def evaluate_context_precision(query, response, retrieved_context):
 
 def evaluate_response_relevancy(query, response, retrieved_context):
     try:
+        from ragas import SingleTurnSample
+        from ragas.llms import LangchainLLMWrapper
+        from ragas.embeddings import LangchainEmbeddingsWrapper
+        from ragas.metrics import ResponseRelevancy
+        import grpc.experimental.aio as grpc_aio
+        grpc_aio.init_grpc_aio()
+
         sample = SingleTurnSample(
             user_input=query,
             response=response,

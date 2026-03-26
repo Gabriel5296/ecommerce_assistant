@@ -3,7 +3,6 @@ from langchain_astradb import AstraDBVectorStore
 from prod_assistant.utils.config_loader import load_config
 from prod_assistant.utils.model_loader import ModelLoader
 from dotenv import load_dotenv
-from prod_assistant.evaluation.ragas_eval import evaluate_context_precision, evaluate_response_relevancy
 # Add the project root to the Python path for direct script execution
 # project_root = Path(__file__).resolve().parents[2]
 # sys.path.insert(0, str(project_root))
@@ -69,6 +68,7 @@ class Retriever:
         return output
     
 if __name__=='__main__':
+    from prod_assistant.evaluation.ragas_eval import evaluate_context_precision, evaluate_response_relevancy
     user_query = "Can you suggest good budget iPhone under 1,00,00 INR?"
     
     retriever_obj = Retriever()

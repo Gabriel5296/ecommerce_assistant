@@ -8,7 +8,6 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from prod_assistant.prompt_library.prompts import PROMPT_REGISTRY, PromptType
 from prod_assistant.utils.model_loader import ModelLoader
-from prod_assistant.evaluation.ragas_eval import evaluate_context_precision, evaluate_response_relevancy
 from langchain_mcp_adapters.client import MultiServerMCPClient
 import asyncio
 

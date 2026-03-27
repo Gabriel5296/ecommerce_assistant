@@ -8,7 +8,7 @@ QuickCart is an intelligent e-commerce chat assistant that scrapes product data 
 
 ## Features
 
-- **Flipkart Web Scraper** — Extracts product titles, prices, ratings, reviews, and links using Selenium and BeautifulSoup
+- **Web Scraper** — Extracts product titles, prices, ratings, reviews, and links using Selenium and BeautifulSoup
 - **Scraper UI** — Streamlit interface to search, scrape, preview, and export product data as CSV
 - **Vector Storage** — Embeds and stores product data in AstraDB using Google Gemini embeddings for semantic search
 - **Agentic RAG Workflow** — LangGraph-powered multi-node pipeline: query routing → retrieval → document grading → response generation or query rewriting → web search fallback

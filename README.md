@@ -2,7 +2,7 @@
 
 ## About
 
-QuickCart is an intelligent e-commerce chat assistant that scrapes product data from Flipkart, stores it in a vector database, and answers user queries through a conversational AI interface. It combines Retrieval-Augmented Generation (RAG), an agentic LangGraph workflow, and Model Context Protocol (MCP) to deliver accurate product information — from pricing and reviews to availability — in real time.
+QuickCart is an intelligent e-commerce chat assistant that scrapes product data, stores it in a vector database, and answers user queries through a conversational AI interface. It combines Retrieval-Augmented Generation (RAG), an agentic LangGraph workflow, and Model Context Protocol (MCP) to deliver accurate product information — from pricing and reviews to availability — in real time.
 
 ---
 
